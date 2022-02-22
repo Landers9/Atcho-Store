@@ -1,0 +1,106 @@
+<% content_for :head do %>
+    <!-- title -->
+    <title>Shop | About</title>
+    <%= stylesheet_link_tag    'all.min.css' %>
+    <%= stylesheet_link_tag    'bootstrap.min.css' %>
+    <%= stylesheet_link_tag    'owl.carousel.css' %>
+    <%= stylesheet_link_tag    'magnific-popup.css' %>
+    <%= stylesheet_link_tag    'animate.css' %>
+    <%= stylesheet_link_tag    'meanmenu.min.css' %>
+    <%= stylesheet_link_tag    'main.css' %>
+    <%= stylesheet_link_tag    'responsive.css' %>
+<% end %>
+	
+	
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <p>OBTENEZ UN SUPPORT 24H/24 ET 7J/7</p>
+                    <h1>Nous Contacter</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end breadcrumb section -->
+
+<!-- contact form -->
+<div class="contact-from-section mt-150 mb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                <div class="form-title">
+                    <h2>Avez-vous une question?</h2>
+                    <p>Posez la à Notre service client.</p>
+                </div>
+                <div id="form_status"></div>
+                <div class="contact-form">
+                    <%= form_tag '/send_contact_message' do %>
+                        <p>
+                            <%= text_field_tag "name", nil, autocomplete: "name", placeholder: "Name", id: 'name', required: 'required' %>
+                            <%= email_field_tag "email", nil, autocomplete: "email", placeholder: "Email", id: 'email', required: 'required' %>
+                        </p>
+                        <p>
+                            <%= text_field_tag "telephone", nil, autocomplete: "tel", placeholder: "Phone", required: 'required' %>
+                            <%= text_field_tag "subject", nil, placeholder: "Subject", requied: 'required' %>
+                        </p>
+                        <p>
+                            <%= text_area "message", nil, autocomplete: "message", placeholder: "Message", id: "message", cols: "30", rows: "10", required: 'required' %>
+                        </p>
+                        <%= submit_tag "Envoyer", class: "px-5 py-2" %>
+                    <% end %>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="contact-form-wrap">
+                    <div class="contact-form-box">
+                        <h4><i class="fas fa-map"></i> Adresse de la boutique</h4>
+                        <p>Benin <br> Calavi <br> BP 010101</p>
+                    </div>
+                    <div class="contact-form-box">
+                        <h4><i class="far fa-clock"></i> Heures d’ouverture</h4>
+                        <p>Lundi au Vendredi de 8h à 18h <br> Samedi au dimanche: 8h à 12h </p>
+                    </div>
+                    <div class="contact-form-box">
+                        <h4><i class="fas fa-address-book"></i> Contacts</h4>
+                        <p>Telephone: +229 01 01 01 01  <br> Email: support@aco.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end contact form -->
+
+<!-- find our location -->
+<div class="find-location blue-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <p> <i class="fas fa-map-marker-alt"></i> TROUVER NOTRE LOCATION</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end find our location -->
+
+<!-- google map section -->
+<div class="embed-responsive embed-responsive-21by9">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63433.17869820939!2d2.306409542684925!3d6.448742255603785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1024a907d5334d9b%3A0xb28a9b10ccbc460a!2sAbomey%20Calavi!5e0!3m2!1sfr!2sbj!4v1636765032817!5m2!1sfr!2sbj" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+<!-- end google map section -->
+
+
+<%= javascript_include_tag 'jquery-1.11.3.min.js' %>
+<%= javascript_include_tag 'bootstrap.min.js' %>
+<%= javascript_include_tag 'jquery.countdown.js' %>
+<%= javascript_include_tag 'jquery.isotope-3.0.6.min.js' %>
+<%= javascript_include_tag 'waypoints.js' %>
+<%= javascript_include_tag 'owl.carousel.min.js' %>
+<%= javascript_include_tag 'jquery.magnific-popup.min.js' %>
+<%= javascript_include_tag 'jquery.meanmenu.min.js' %>
+<%= javascript_include_tag 'sticker.js' %>
+<%= javascript_include_tag 'main.js' %>

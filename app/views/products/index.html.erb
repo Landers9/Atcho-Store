@@ -1,0 +1,130 @@
+<% content_for :head do %>
+    <!-- title -->
+    <title>Shop | Shop</title>
+    <%= stylesheet_link_tag    'all.min.css' %>
+    <%= stylesheet_link_tag    'bootstrap.min.css' %>
+    <%= stylesheet_link_tag    'owl.carousel.css' %>
+    <%= stylesheet_link_tag    'magnific-popup.css' %>
+    <%= stylesheet_link_tag    'animate.css' %>
+    <%= stylesheet_link_tag    'meanmenu.min.css' %>
+    <%= stylesheet_link_tag    'main.css' %>
+    <%= stylesheet_link_tag    'responsive.css' %>
+<% end %>
+
+
+
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 offset-lg-2 text-center">
+				<div class="breadcrumb-text">
+					<p>La meilleure qualité</p>
+					<h1>Boutique</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end breadcrumb section -->
+
+<!-- products -->
+<div class="product-section mt-150 mb-150">
+	<div class="container">
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="product-filters">
+					<ul class="categoris">
+						
+							<li class="<% if !@active %>active<% end %>">
+								<%= link_to products_path do %>All<% end %>
+							</li>
+						
+                        <% @categories.each do |category| %>
+                            
+								<% if !category.category %>
+									<li class="<% if @active==category.id %>active<% end %>" data-filter=".<%= category.name %>">
+										<%= link_to filter_path(category) do %>
+											<%= category.name %>
+											<% if category.categories.length > 0 %>
+												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+													<path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+												</svg>
+											<% end %>
+										<% end %>
+
+										<% if category.categories.length > 0 %>
+											<ul class="sous_categories">
+												<% category.categories.each do |sub_category| %>
+													<% if @active==sub_category.id %>
+														<%= link_to filter_path(sub_category), class: "active" do %>
+															<li data-filter=".<%= sub_category.name %>">
+																<%= sub_category.name %>
+															</li>
+														<% end %>
+													<% else %>
+														<%= link_to filter_path(sub_category) do %>
+															<li data-filter=".<%= sub_category.name %>">
+																<%= sub_category.name %>
+															</li>
+														<% end %>
+													<% end %>
+												<% end %>
+											</ul>
+										<% end %>
+
+									</li>
+								<% end %>
+							
+
+                        <% end %>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="row product-lists">
+            <% @products.each do |product| %>
+                <div class="col-lg-4 col-md-6 text-center strawberry">
+                    <div class="single-product-item">
+                        <div class="product-image m-auto">
+                            <%= link_to product_path(product) do %><%= image_tag product.image.url if product.image.url && product.image %><% end %>
+                        </div>
+                        <h4><%= product.category.name %></h4>
+                        <p class="product-price"><span><%= product.name %></span> <%= product.price %> FCFA</p>
+                        <%= link_to add_cart_path(product_id: product.id), class: "cart-btn" do  %><i class="fas fa-shopping-cart"></i> Add to Cart<% end %>
+                    </div>
+                </div>
+            <% end %>
+		</div>
+
+		<!--<div class="row">
+			<div class="col-lg-12 text-center">
+				<div class="pagination-wrap">
+					<ul>
+						<li><a href="#">Prev</a></li>
+						<li><a href="#">1</a></li>
+						<li><a class="active" href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">Next</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>-->
+	</div>
+</div>
+<!-- end products -->
+
+
+
+<%= javascript_include_tag 'jquery-1.11.3.min.js' %>
+<%= javascript_include_tag 'bootstrap.min.js' %>
+<%= javascript_include_tag 'jquery.countdown.js' %>
+<%= javascript_include_tag 'jquery.isotope-3.0.6.min.js' %>
+<%= javascript_include_tag 'waypoints.js' %>
+<%= javascript_include_tag 'owl.carousel.min.js' %>
+<%= javascript_include_tag 'jquery.magnific-popup.min.js' %>
+<%= javascript_include_tag 'jquery.meanmenu.min.js' %>
+<%= javascript_include_tag 'sticker.js' %>
+<%= javascript_include_tag 'main.js' %>

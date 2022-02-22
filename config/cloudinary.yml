@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dnhx91nrg
+  api_key: '884581632999489'
+  api_secret: _eJNfx-pVdPR-mGtY1X2Dii2ElI
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: dnhx91nrg
+  api_key: '884581632999489'
+  api_secret: _eJNfx-pVdPR-mGtY1X2Dii2ElI
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: dnhx91nrg
+  api_key: '884581632999489'
+  api_secret: _eJNfx-pVdPR-mGtY1X2Dii2ElI
+  enhance_image_tag: true
+  static_file_support: false

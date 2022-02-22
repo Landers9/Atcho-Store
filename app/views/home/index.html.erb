@@ -1,0 +1,313 @@
+<% content_for :head do %>
+    <!-- title -->
+    <title>Shop | Home</title>
+    <%= stylesheet_link_tag    'all.min.css' %>
+    <%= stylesheet_link_tag    'bootstrap.min.css' %>
+    <%= stylesheet_link_tag    'owl.carousel.css' %>
+    <%= stylesheet_link_tag    'magnific-popup.css' %>
+    <%= stylesheet_link_tag    'animate.css' %>
+    <%= stylesheet_link_tag    'meanmenu.min.css' %>
+    <%= stylesheet_link_tag    'main.css' %>
+    <%= stylesheet_link_tag    'responsive.css' %>
+<% end %>
+	
+	
+
+<!-- home page slider -->
+<div class="homepage-slider">
+    <!-- single home slider -->
+    <div class="single-homepage-slider homepage-bg-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-7 offset-lg-1 offset-xl-0">
+                    <div class="hero-text">
+                        <div class="hero-text-tablecell">
+                            <p class="subtitle">Original et Créatif</p>
+                            <h1>Un style qui nous définit</h1>
+                            <div class="hero-btns">
+                                <%= link_to "Collection de vêtements", products_path, class: "boxed-btn" %>
+                                <%= link_to "Nous contacter", contact_path, class: "bordered-btn" %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- single home slider -->
+    <div class="single-homepage-slider homepage-bg-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1 text-center">
+                    <div class="hero-text">
+                        <div class="hero-text-tablecell">
+                            <p class="subtitle">Au cœur de l’Afrique</p>
+                            <h1>Des vetements 100% Béninois</h1>
+                            <div class="hero-btns">
+                                <%= link_to "Visiter la boutique", products_path, class: "boxed-btn" %>
+                                <%= link_to "Nous contacter", contact_path, class: "bordered-btn" %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- single home slider -->
+    <div class="single-homepage-slider homepage-bg-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1 text-right">
+                    <div class="hero-text">
+                        <div class="hero-text-tablecell">
+                            <p class="subtitle">Promotions exceptionnelles</p>
+                            <h1>Réductions sur Votre premier Achat</h1>
+                            <div class="hero-btns">
+                                <%= link_to "Visiter la boutique", products_path, class: "boxed-btn" %>
+                                <%= link_to "Nous contacter", contact_path, class: "bordered-btn" %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end home page slider -->
+
+<!-- features list section -->
+<div class="list-section pt-80 pb-80">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                <div class="list-box d-flex align-items-center">
+                    <div class="list-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <div class="content">
+                        <h3>Livraison gratuite</h3>
+                        <p>Quand la commande excede 20000 FCFA</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                <div class="list-box d-flex align-items-center">
+                    <div class="list-icon">
+                        <i class="fas fa-phone-volume"></i>
+                    </div>
+                    <div class="content">
+                        <h3>24h/24 7j/7</h3>
+                        <p>Accedez au support client tous les jours</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="list-box d-flex justify-content-start align-items-center">
+                    <div class="list-icon">
+                        <i class="fas fa-sync"></i>
+                    </div>
+                    <div class="content">
+                        <h3>Remboursement</h3>
+                        <p>Satisfait ou remboursé avant 3jours!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- end features list section -->
+
+<!-- product section -->
+<div class="product-section mt-150 mb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="section-title">	
+                    <h3><span class="orange-text">Nos</span> Produits</h3>
+                    <p>Profitez d’une variétés de vetements modernement traditionnels lancés par des créateurs de mode et stylistes du Benin.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <% @products.each do |product| %>
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="single-product-item">
+                        <div class="product-image m-auto">
+                            <%= link_to product_path(product) do %><%= image_tag product.image.url if product.image.url && product.image %><% end %>
+                        </div>
+                        <h4><%= product.category.name %></h4>
+                        <p class="product-price"><span><%= product.name %></span> <%= product.price %> FCFA</p>
+                        <%= link_to add_cart_path(product_id: product.id), class: "cart-btn" do  %><i class="fas fa-shopping-cart"></i> Add to Cart<% end %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+<!-- end product section -->
+
+<!-- testimonail-section -->
+<div class="testimonail-section mt-80 mb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1 text-center">
+                <div class="testimonial-sliders">
+                    <div class="single-testimonial-slider">
+                        <div class="client-avater">
+                            <img src="img/other-images/temoin2.jpeg" alt="">
+                        </div>
+                        <div class="client-meta">
+                            <h3>AFANONTIN Dona <span>CLIENT FIDELE</span></h3>
+                            <p class="testimonial-body">
+                                " Depuis que j’ai découvert le site de la société ACO , je peux faire toutes mes commandes sans me compliquer la tache. Et avec la livraison gratuite sur certains produits je recois mon produit sans depenser un centime. "
+                            </p>
+                            <div class="last-icon">
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-testimonial-slider">
+                        <div class="client-avater">
+                            <img src="img/other-images/testimony1.jpeg" alt="">
+                        </div>
+                        <div class="client-meta">
+                            <h3>DEFIN Flora <span>CLIENTE</span></h3>
+                            <p class="testimonial-body">
+                                " J’avais du mal à trouver de l’authenticité dans les vetements locaux que j’achetais. Avec la panoplie proposée par ACO et ses créateurs, je peux m’habiller « Local » sans avoir honte en public. "
+                            </p>
+                            <div class="last-icon">
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-testimonial-slider">
+                        <div class="client-avater">
+                            <img src="img/other-images/testimony3.jpeg" alt="">
+                        </div>
+                        <div class="client-meta">
+                            <h3>AKPEDJE Boris <span>Utilisateur de ACO WEB</span></h3>
+                            <p class="testimonial-body">
+                                " J’ai connu ACO en faisant une recherche et je suis tombé sur leur site web. J’ai tout de suite adoré le concept et ai essayé mes achats en ligne. Je n’ai franchement pas été décu. "
+                            </p>
+                            <div class="last-icon">
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end testimonail-section -->
+
+<!-- advertisement section -->
+<div class="abt-section mb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="abt-bg">
+                    <a href="video/fatyToché.mp4" class="video-play-btn popup-youtube"><i class="fas fa-play"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="abt-text">
+                    <p class="top-sub">Depuis 2010</p>
+                    <h2>Nous sommes <span class="orange-text" style="text-transform: uppercase;">acɔ</span></h2>
+                    <p>Une société de pomotion des valeurs béninoises à travers les tenues vestimentaires ! Nous sommes en collaborations avec de nombreux producteurs local de produits bruts , que les créateurs de notre entreprise transforment en chef d’œuvres locaux pour votre plus grand plaisir. Nous créons la confiance de nos clients par notre sens de la qualité chez nous . BIENVENUS A VOUS. MI KWABO</p>
+                    <%= link_to "Voir plus", about_path, class: "boxed-btn mt-4" %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end advertisement section -->
+
+
+<!-- shop banner -->
+<section class="shop-banner">
+    <div class="container">
+        <h3>Les ventes de <br> decembre ont <span class="orange-text">commencé...</span></h3>
+        <div class="sale-percent"><span>Une reduction comme on <br> n’en a jamais vu! jusqu’à</span>-50% <span>sur vos produits</span></div>
+        <%= link_to "Acheter maintenant", products_path, class: "cart-btn btn-lg", style: "color:orange;background-color:black;" %>
+    </div>
+</section>
+<!-- end shop banner -->
+
+
+<!-- latest news -->
+<div class="latest-news pt-150 pb-150">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="section-title">	
+                    <h3><span class="orange-text">Nos </span> Nouvelles</h3>
+                    <p>Retrouvez reportés ici, nos évènements les plus interessants.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="single-latest-news">
+                    <a href="#"><div class="latest-news-bg news-bg-1"></div></a>
+                    <div class="news-text-box">
+                        <h3><a href="#">Organisation de formation sur le métier du stylisme au benin</a></h3>
+                        <p class="blog-meta">
+                            <span class="author"><i class="fas fa-user"></i> Administrateur</span>
+                            <span class="date"><i class="fas fa-calendar"></i> 01 Avril, 2019</span>
+                        </p>
+                        <p class="excerpt">De nombreux passionnés du pagne africain , de la culture béninoise et de la couture se sont lancé dans cette aventure de conquete de compétences. Ils en sont ressortis capable de réaliser leurs propre projets en ce qui concerne le stylisme vestimentaire.</p>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="single-latest-news">
+                    <a href="#"><div class="latest-news-bg news-bg-2"></div></a>
+                    <div class="news-text-box">
+                        <h3><a href="#">Rencontre avec tous nos partenaires</a></h3>
+                        <p class="blog-meta">
+                            <span class="author"><i class="fas fa-user"></i> Administrateur</span>
+                            <span class="date"><i class="fas fa-calendar"></i> 27 Decembre, 2021</span>
+                        </p>
+                        <p class="excerpt">Cette rencontre s’est déroulée dans le but de redéfinir clairement les objectifs de l’association et de les rendre clairs pour tout les partis présents. Une recollection suivie d’un buffet a eu lieu.</p>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
+                <div class="single-latest-news">
+                    <a href="#"><div class="latest-news-bg news-bg-3"></div></a>
+                    <div class="news-text-box">
+                        <h3><a href="#">Inauguration du cinquième site physique de « ACO ,NYIKO MITON »</a></h3>
+                        <p class="blog-meta">
+                            <span class="author"><i class="fas fa-user"></i> Administrateur</span>
+                            <span class="date"><i class="fas fa-calendar"></i> 27 19 fevrier, 2015</span>
+                        </p>
+                        <p class="excerpt">La famille ne cesse de s’agrandir et les demandes fusent de toutes les localités béninoises et meme extérieures. Ainsi pour vous remercier et faire plaisir aux plus avides de nos produits, nous élargissons notre étendue en inaugurant ce nouveau site physique !</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end latest news -->
+
+
+
+<%= javascript_include_tag 'jquery-1.11.3.min.js' %>
+<%= javascript_include_tag 'bootstrap.min.js' %>
+<%= javascript_include_tag 'jquery.countdown.js' %>
+<%= javascript_include_tag 'jquery.isotope-3.0.6.min.js' %>
+<%= javascript_include_tag 'waypoints.js' %>
+<%= javascript_include_tag 'owl.carousel.min.js' %>
+<%= javascript_include_tag 'jquery.magnific-popup.min.js' %>
+<%= javascript_include_tag 'jquery.meanmenu.min.js' %>
+<%= javascript_include_tag 'sticker.js' %>
+<%= javascript_include_tag 'main.js' %>

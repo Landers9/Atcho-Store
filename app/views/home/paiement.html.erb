@@ -1,0 +1,62 @@
+<% content_for :head do %>
+    <!-- title -->
+    <title>Shop | Paiement</title>
+    <%= stylesheet_link_tag    'all.min.css' %>
+    <%= stylesheet_link_tag    'bootstrap.min.css' %>
+    <%= stylesheet_link_tag    'owl.carousel.css' %>
+    <%= stylesheet_link_tag    'magnific-popup.css' %>
+    <%= stylesheet_link_tag    'animate.css' %>
+    <%= stylesheet_link_tag    'meanmenu.min.css' %>
+    <%= stylesheet_link_tag    'main.css' %>
+    <%= stylesheet_link_tag    'responsive.css' %>
+<% end %>
+
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 offset-lg-2 text-center">
+				<div class="breadcrumb-text">
+					<h1>Paiement</h1>
+					<p>Nous disposons des systèmes de paiements mobile</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end breadcrumb section -->
+
+<div style="margin-top: 30px;">
+    <p style="text-align:center; color:red;">Soldez votre achat par MTN MOMO ou Moov Afrika pour valider la commande</p>
+</div>
+
+<div id="embed" style="width: 600px; height: 450px; margin:20px auto;"></div>
+
+<script type="text/javascript">
+    FedaPay.init({
+      public_key: 'pk_live_N72mDAQXvh6YGsSIp7Wb_Nhi',
+      transaction: {
+        amount: <%= @total_price %>,
+        description: 'Buy my product'
+      },
+      customer: {
+        email: 'johndoe@gmail.com',
+        lastname: 'Doe',
+      },
+      container: '#embed'
+   });
+</script>
+
+
+
+
+<%= javascript_include_tag 'jquery-1.11.3.min.js' %>
+<%= javascript_include_tag 'bootstrap.min.js' %>
+<%= javascript_include_tag 'jquery.countdown.js' %>
+<%= javascript_include_tag 'jquery.isotope-3.0.6.min.js' %>
+<%= javascript_include_tag 'waypoints.js' %>
+<%= javascript_include_tag 'owl.carousel.min.js' %>
+<%= javascript_include_tag 'jquery.magnific-popup.min.js' %>
+<%= javascript_include_tag 'jquery.meanmenu.min.js' %>
+<%= javascript_include_tag 'sticker.js' %>
+<%= javascript_include_tag 'main.js' %>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="img/logo.svg">
+
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet"/>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+
+    <%= javascript_include_tag 'sweetalert.min.js' %>
+    <%= stylesheet_link_tag    'monStyle.css' %>
+
+    <%= yield :head %>
+  </head>
+
+  <body>
+
+    <!--PreLoader-->
+    <div class="loader">
+        <div class="loader-inner">
+            <div class="circle"></div>
+        </div>
+    </div>
+    <!--PreLoader Ends-->
+
+    <!-- header -->
+    <div class="top-header-area" id="sticker">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-sm-12 text-center">
+            <div class="main-menu-wrap">
+              <!-- logo -->
+              <div class="site-logo">
+                <a href="index.html">
+                <%= link_to root_path do %>
+                  <%= image_tag "logo.svg", style: "width: 120px", alt: "acɔ" %>
+                  <img src="logo.png" style="width: 50px;" alt="">
+                <% end %>
+              </div>
+              <!-- logo -->
+
+              <!-- menu start -->
+              <nav class="main-menu">
+                <ul id="menu">
+                  <li class="current-list-item sous-menu"><%= link_to "Accueil", root_path, class: "lien" %></li>
+                  <li class="sous-menu"><%= link_to "Boutique", products_path, class: "lien" %>
+                    <ul class="sub-menu">
+                      <li><%= link_to "Boutique", products_path, class: "lien" %></li>
+                      <li><%= link_to "Panier", carts_path, class: "lien" %></li>
+                    </ul>
+                  </li>
+                  <li class="sous-menu"><%= link_to "Contact", contact_path, class: "lien" %></li>
+                  <li class="sous-menu"><%= link_to "A propos", about_path, class: "lien" %></li>
+                  <% if user_signed_in? %>
+                      <li class="sous-menu">
+                          <% if current_user.admin %><%= link_to "Admin", rails_admin_path, class: "lien" %><% end %>
+                      </li>
+                      <li class="sous-menu"><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "lien" %></li>
+                  <% else %>
+                      <li class="sous-menu"><%= link_to "Se  connecter", new_user_session_path, class: "lien" %></li>
+                      <li class="sous-menu"><%= link_to "S'inscrire", new_user_registration_path, class: "lien" %></li>
+                  <% end %>
+                  <li>
+                    <div class="header-icons">
+                      <%= link_to carts_path do %><i class="fas fa-shopping-cart"></i> <% if user_signed_in? %>[ <%= Cart.where(user_id: current_user.id).count %> ] <% end %><% end %>
+                      <a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+                    </div>
+                  </li>
+                </ul>
+              </nav>
+              <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+              <div class="mobile-menu"></div>
+              <!-- menu end -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end header -->
+
+    <!-- search area -->
+    <div class="search-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <span class="close-btn"><i class="fas fa-window-close"></i></span>
+            <div class="search-bar">
+              <div class="search-bar-tablecell">
+                <h3>Search For:</h3>
+                <input type="text" placeholder="Keywords">
+                <button type="submit">Search <i class="fas fa-search"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end search area -->
+
+    <style>
+      .swal-modal {
+        background-color: #051922;
+      }
+
+      .swal-text, .swal-title{
+        color: #fff;
+      }
+
+      .swal-button {
+        background-color: #F28123;
+      }
+    </style>
+
+    <% if notice %>
+      <script>
+        swal("SUCCESS", "<%= notice %>".split("&#39;").join("'"));
+
+      </script>
+    <% end %>
+
+    <% if alert %>
+      <script>
+        swal("WARNING", "<%= alert %>".split("&#39;").join("'"), "warning");
+      </script>
+    <% end %>
+
+
+    <%= yield %>
+
+
+    <!-- footer -->
+    <div class="footer-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-box about-widget">
+              <h2 class="widget-title">A propos de nous</h2>
+              <p>Nous sommes ACO, Nyiko miton <br> Une société de promotion des valeurs béninoises à travers les tenues vestimentaires ! Nous proposons des vetements exceptionnellement beninois , nous organisons également des formations pour les béninois passionnés de stylisme.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-box get-in-touch">
+              <h2 class="widget-title">Contacts</h2>
+              <ul>
+                <li>Site Principal : CALAVI , Deuxieme grande rue apres le campus , bp 010101</li>
+                <li>support@aco.com</li>
+                <li>+229 01 01 01 01 /+229 12 01 01 01</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-box pages">
+              <h2 class="widget-title">Pages</h2>
+              <ul>
+                <li><%= link_to "Accueil", root_path %></li>
+                <li><%= link_to "A propos", about_path %></li>
+                <li><%= link_to "Boutique", products_path %></li>
+                <li><%= link_to "Contact", contact_path %></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-box subscribe">
+              <h2 class="widget-title">S’abonner</h2>
+              <p>Abonnez vous a nos news letters pour etre notifiés sur nos mises à jour.</p>
+              <form action="index.html">
+                <input type="email" placeholder="Email">
+                <button type="submit"><i class="fas fa-paper-plane"></i></button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end footer -->
+
+    <!-- copyright -->
+    <div class="copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-12">
+            <p>Copyrights &copy; 2010 – <a href="https://imransdesign.com/"> ACO , NYIKO MITON </a>, Tous droits réservés.</p>
+          </div>
+          <div class="col-lg-6 text-right col-md-12">
+            <div class="social-icons">
+              <ul>
+                <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%= javascript_include_tag 'monScript.js' %>
+  </body>
+</html>

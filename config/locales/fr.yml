@@ -1,0 +1,424 @@
+---
+fr:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'La validation a échoué : %{errors}'
+        restrict_dependent_destroy:
+          has_one: Vous ne pouvez pas supprimer l'enregistrement car un(e) %{record}
+            dépendant(e) existe
+          has_many: Vous ne pouvez pas supprimer l'enregistrement parce que les %{record}
+            dépendants existent
+    models:
+      product: Produit
+      cart: Panier
+      category: Catégorie
+      order: Commande
+      orders_product: Produits liés aux coommandes
+      user: Utilisateur
+
+    attributes:
+      product:
+        announcements: Annonces
+        channel: :activerecord.models.channel
+        user: :activerecord.models.user
+
+      cart:
+        content: Contenu
+        image: Image
+
+      category:
+        administrators: Administrateurs
+        announcements: Annonces
+        description: Description
+        image: Image de couverture
+        name: Nom de la chaîne
+        subscriptions: Abonnements
+        title: Titre
+        user: :activerecord.models.user
+
+      order:
+        announcement: :activerecord.models.announcement
+        content: Teneur
+        user: :activerecord.models.user
+
+      orders_product:
+        announcement: :activerecord.models.announcement
+        user: :activerecord.models.user
+
+      user:
+        name: Nom
+        first_name: Prénom
+        password: "Mot de passe"
+        password_confirmation: "Confirmé mot de passe"
+        current_password: "Mot de passe actuel"
+        admin: Administrateur
+        administrators: Administrateurs
+        channels: Canaux
+        comments: commentaires
+        confirmation_sent_at: Confirmation envoyée à
+        confirmation_token: Jeton de confirmation
+        confirmed_at: Confirmé à
+        current_sign_in_at: Connexion actuelle à
+        current_sign_in_ip: IP de connexion actuelle
+        email: E-mail
+        encrypted_password: Mot de passe crypté
+        first_name: Prénom
+        guest: Invité
+        image: Image
+        last_sign_in_at: Dernière connexion à
+        last_sign_in_ip: Dernière connexion IP
+        likes: Aime
+        remember_created_at: Rappelez-vous créé à
+        reset_password_sent_at: Réinitialiser le mot de passe envoyé à
+        reset_password_token: Réinitialiser le jeton de mot de passe
+        subscriptions: Abonnements
+        unconfirmed_email: E-mail non confirmé
+  date:
+    abbr_day_names:
+    - dim
+    - lun
+    - mar
+    - mer
+    - jeu
+    - ven
+    - sam
+    abbr_month_names:
+    - 
+    - jan.
+    - fév.
+    - mar.
+    - avr.
+    - mai
+    - juin
+    - juil.
+    - août
+    - sept.
+    - oct.
+    - nov.
+    - déc.
+    day_names:
+    - dimanche
+    - lundi
+    - mardi
+    - mercredi
+    - jeudi
+    - vendredi
+    - samedi
+    formats:
+      default: "%d/%m/%Y"
+      long: "%e %B %Y"
+      short: "%e %b"
+    month_names:
+    - 
+    - janvier
+    - février
+    - mars
+    - avril
+    - mai
+    - juin
+    - juillet
+    - août
+    - septembre
+    - octobre
+    - novembre
+    - décembre
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: environ une heure
+        other: environ %{count} heures
+      about_x_months:
+        one: environ un mois
+        other: environ %{count} mois
+      about_x_years:
+        one: environ un an
+        other: environ %{count} ans
+      almost_x_years:
+        one: presqu'un an
+        other: presque %{count} ans
+      half_a_minute: une demi‑minute
+      less_than_x_seconds:
+        zero: moins d'une seconde
+        one: moins d'une seconde
+        other: moins de %{count} secondes
+      less_than_x_minutes:
+        zero: moins d'une minute
+        one: moins d'une minute
+        other: moins de %{count} minutes
+      over_x_years:
+        one: plus d'un an
+        other: plus de %{count} ans
+      x_seconds:
+        one: 1 seconde
+        other: "%{count} secondes"
+      x_minutes:
+        one: 1 minute
+        other: "%{count} minutes"
+      x_days:
+        one: 1 jour
+        other: "%{count} jours"
+      x_months:
+        one: 1 mois
+        other: "%{count} mois"
+      x_years:
+        one: 1 an
+        other: "%{count} ans"
+    prompts:
+      second: Seconde
+      minute: Minute
+      hour: Heure
+      day: Jour
+      month: Mois
+      year: Année
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      admin:
+        not_access: "Vous ne pouvez pas accéder à la page d'administration à moins que vous ne soyez un administrateur"
+      accepted: doit être accepté(e)
+      blank: doit être rempli(e)
+      confirmation: ne concorde pas avec %{attribute}
+      empty: doit être rempli(e)
+      equal_to: doit être égal à %{count}
+      even: doit être pair
+      exclusion: n'est pas disponible
+      greater_than: doit être supérieur à %{count}
+      greater_than_or_equal_to: doit être supérieur ou égal à %{count}
+      inclusion: n'est pas inclus(e) dans la liste
+      invalid: n'est pas valide
+      less_than: doit être inférieur à %{count}
+      less_than_or_equal_to: doit être inférieur ou égal à %{count}
+      model_invalid: 'Validation échouée : %{errors}'
+      not_a_number: n'est pas un nombre
+      not_an_integer: doit être un nombre entier
+      odd: doit être impair
+      other_than: doit être différent de %{count}
+      present: doit être vide
+      required: doit exister
+      taken: n'est pas disponible
+      too_long:
+        one: est trop long (pas plus d'un caractère)
+        other: est trop long (pas plus de %{count} caractères)
+      too_short:
+        one: est trop court (au moins un caractère)
+        other: est trop court (au moins %{count} caractères)
+      wrong_length:
+        one: ne fait pas la bonne longueur (doit comporter un seul caractère)
+        other: ne fait pas la bonne longueur (doit comporter %{count} caractères)
+      not_saved: "Enregistrement échoué"
+    template:
+      body: 'Veuillez vérifier les champs suivants : '
+      header:
+        one: 'Impossible d''enregistrer ce(tte) %{model} : 1 erreur'
+        other: 'Impossible d''enregistrer ce(tte) %{model} : %{count} erreurs'
+  helpers:
+    select:
+      prompt: Veuillez sélectionner
+    submit:
+      create: Créer une %{model}
+      submit: Enregistrer ce(tte) %{model}
+      update: "Mettre à jour"
+  number:
+    currency:
+      format:
+        delimiter: " "
+        format: "%n %u"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "€"
+    format:
+      delimiter: " "
+      precision: 3
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: milliard
+          million: million
+          quadrillion: million de milliards
+          thousand: millier
+          trillion: billion
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: octet
+            other: octets
+          eb: Eo
+          gb: Go
+          kb: ko
+          mb: Mo
+          pb: Po
+          tb: To
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: " et "
+      two_words_connector: " et "
+      words_connector: ", "
+  time:
+    am: am
+    formats:
+      default: "%d %B %Y %Hh %Mmin %Ss"
+      long: "%A %d %B %Y %Hh%M"
+      short: "%d %b %Hh%M"
+    pm: pm
+  header_footer:
+    home: Accueil
+    messages: Messages
+    my_channels: "Mes chaînes"
+    help: Aide
+    about: "À propos"
+    profil: Profil
+    admin: Administrateur
+    confidentiality_policy: "Politique de confidentialité"
+    shortcuts: Raccoucis
+    infos: Infos
+    contacts: Contacts
+    copyright: "Copyright © Pubset.2021. Tous droits reservés."
+  log_in: "Se connecter"
+  sign_up: "S'inscrire"
+  log_out: "Se déconnecter"
+  pubset:
+    message_0:
+      sentence_1: "Bienvenue à Pubset,"
+      sentence_2: "le meilleur réseau publicitaire."
+    message_1:
+      sentence_1: "Cher utilisateur, si vous avez besoin d'un produit ou d'un service,"
+      sentence_2: "pubset est la meilleure application qui peut vous mettre en contact avec un fournisseur."
+    message_2:
+      sentence_1: "Entrepreneur, pubset est spécialement pour vous."
+      sentence_2: "Il vous aidera à rester en contact avec vos anciens clients tout en en gagnant de nombreux nouveaux."
+    message_3:
+      sentence_1: "Si vous êtes un travailleur indépendant,"
+      sentence_2: "pubset est en mesure de vous mettre en contact avec des clients du monde entier."
+    message_4:
+      sentence_1: "Ne perdez plus de temps,"
+      sentence_2: "commencez dès maintenant à profiter du potentiel de la pubset."
+    objective:
+      paragraph_1: "De nos jours, de nombreuses entreprises naissent avec beaucoup de potentiel et de grandes idées, mais par manque de clients, ces entreprises meurent très rapidement. En outre, il existe également des personnes qui exercent certaines professions mais qui ne parviennent pas à vendre leurs produits ou services en raison du manque de clients."
+      paragraph_2: "C'est pour résoudre ces problèmes que ce système a été mis en place afin de mettre en relation les fournisseurs et les clients du monde entier. Cette application permet aux entreprises et aux personnes qui vendent un produit ou fournissent un service de se faire connaître au niveau international afin de gagner beaucoup plus de clients. Cette application permet également aux internautes qui recherchent un produit ou un service de le trouver très rapidement."
+      paragraph_3: "Ce sera une application qui pourra être utilisée par tout le monde et par toutes les entreprises du monde entier."
+    how_does_it_work:
+      paragraph_1: "Tout d'abord, pour profiter des services de pubset, vous devez avoir un compte pubset. Une fois connecté, vous verrez une liste de chaînes que vous pourrez trier pour trouver celles qui fournissent les produits ou services dont vous avez besoin. Si un canal vous intéresse, vous pouvez vous abonner à ce canal pour être averti chaque fois que les administrateurs du canal publient de nouvelles annonces sur ce canal. Vous pouvez aimer et commenter les annonces de n'importe quelle chaîne. Vous pouvez également contacter le fournisseur de votre choix afin de négocier un produit ou un service (Cette fonction n'est pas encore implémentée)."
+      paragraph_2: "Deuxièmement, vous pouvez également créer un canal pour votre entreprise ou votre travail sur lequel vous pouvez publier des annonces à tout moment. Tous vos anciens clients ainsi que les nouveaux qui s'abonneront à votre canal seront avertis à chaque fois que vous allez publier une nouvelle annonce. Si vous avez créé votre canal pour votre entreprise, vous pouvez ajouter d'autres membres de votre équipe en tant qu'administrateur de votre canal afin qu'ils puissent également publier des annonces sur le canal. Vos annonces peuvent être commentées et aimées par tout le monde."
+  title:
+    pubset:
+      objective: "Objectif de Pubset"
+      how_does_it_work: "Comment ça marche ?"
+    log_in: "Connexion"
+    sign_up: "Inscription"
+    description: "Description"
+    announcements: "Annonces"
+    channels_list: "Liste de vos chaînes"
+    administrators: "Administrateurs"
+    editing_channel: "Modification de chaîne"
+    editing_announcement: "Modification d'annonce"
+    editing_user: "Modification de profil"
+  btn:
+    start: "Commencer"
+    test_as_guest_user: "Tester l'application comme un simple utlisateur"
+    test_as_guest_admin: "Tester l'application comme un administrateur"
+    subscribe: "S'abonner"
+    unsubscribe: "Se désabonner"
+    read_more: "Voir plus"
+    search: "Rechercher"
+    contact_supplier: "Contacter le fournisseur"
+    contact_us: "Nous contacter"
+    liker: "J'aime"
+    unliker: "Je n'aime pas"
+    comment: "Commenter"
+    share: "Partager"
+    publish: "Publier"
+    edit: "Editer"
+    delete: "Supprimer"
+    new_channel: "Nouvelle chaîne"
+    remove: "Retirer"
+    add_administrator: "Ajouter un administrateur"
+    new_announcement: "Nouvelle annonce"
+    leave: "Quitter"
+    cancel_my_account: "Supprimer mon compte"
+    edit_my_profil: "Editer mon profil"
+    back: "Retour"
+  text:
+    subscriber: "abonné"
+    like: "appréciation"
+    comment: "commentaire"
+    view: "vue"
+  placeholder:
+    channel:
+      search: "Entrez le produit ou le service que vous recherchez"
+      name: "Le nom de votre nouvelle chaîne"
+      title: "Un pétit titre pour attirer des clients"
+      description: "La description de votre entreprise, de votre produit ou de votre service" 
+    comment: "Votre commentaire"
+    administrator: "Adresse email"
+    user:
+      password: "Votre mot de passe"
+      password_confirmation: "Répéter votre mot de passe"
+      new_password: "Votre nouveau mot de passe"
+      new_password_confirmation: "Répéter votre nouneau mot de passe"
+      current_password: "Votre mot de passe actuel"
+    announcement:
+      content: "Le contenu de votre annonce"
+  label:
+    session:
+      remenber_me: "Se rappeler de moi"
+  delete_confirmation_message:
+    comment: "Êtes-vous sûr de vouloir supprimer ce commentaire ?"
+    channel: "Êtes-vous sûr de vouloir supprimer cette chaîne ?"
+    user: "Êtes-vous sûr de vouloir supprimer votre compte ?"
+    announcement: "Êtes-vous sûr de vouloir supprimer cette annonce ?"
+    administrator:
+      delete_yousefl: "Êtes-vous sûr de vouloir quitter cette chaîne ?"
+      delete_other: "Êtes-vous sûr de vouloir retirer cet administrateur ?"
+  channel:
+    info_1: "Cette phrase est l'une des toutes premières choses que tout le monde verra sur votre chaîne. Veillez donc à bien la formuler pour attirer les clients."
+    info_2: "Cette image est l'une des toutes premières choses que tout le monde verra sur votre chaîne. Veuillez donc choisir une meilleure image pour attirer les clients."
+    info_3: "Vous pouvez ajouter plusieurs administrateurs en même temps avec +"
+    info_4: "Les champs obligatoires sont marqués"
+    empty: "Vous n'avez pas de chaîne"
+    info_5: "Si vous vendez un produit ou fournissez un service, veuillez créer une chaîne afin de vous faire reconnaitre au niveau international."
+  user:
+    info_1: "laissez vide si vous ne voulez pas le changer"
+    info_2: "caractères au minimum"
+    info_3: "nous avons besoin de votre mot de passe actuel pour confirmer vos changements"
+  success:
+    channel:
+      create: "La chaîne a été créée avec succès."
+      update: "La chaîne a été mise à jour avec succès."
+      destroy: "La chaîne a été detruite avec succès."
+    announcement:
+      create: "L'annonce a été créée avec succès."
+      update: "L'annonce a été mise à jour avec succès."
+      destroy: "L'annonce a été detruite avec succès."
+    subscription:
+      create: "L'abonnement a été créé avec succès."
+      destroy: "L'abonnement a été detruit avec succès."
+    administrator:
+      add: "L'administrateur a été ajouté avec succès."
+      remove: "L'abonnement a été retiré avec succès."
+      leave: "Vous avez quitté la chaîne avec succès."
+      
